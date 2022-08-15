@@ -1,0 +1,8 @@
+r	to start rain
+s	to stop rain
+
+b	boat start // Auto start at tarat up
+n	boat stop
+
+c	cloud start // Auto start at tarat up
+v	cloud stop

@@ -1,0 +1,106 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class calc
+{
+public:
+	calc()
+	{
+	}
+	float sum()
+	{
+		float a,b,r=0;
+		cout<<"Please enter a number:";
+		cin>>a;
+		cout<<"Please enter another number:";
+		cin>>b;
+		r=a+b;
+		cout<<a<<"+"<<b<<"="<<r<<endl;
+		return a+b;
+	}
+	float sub()
+	{
+		float c,d,r=0;
+		cout<<"Please enter a number:";
+		cin>>c;
+		cout<<"Please enter another number:";
+		cin>>d;
+		r=c-d;
+		cout<<c<<"-"<<d<<"="<<r<<endl;
+		return c-d;
+	}
+	float mul()
+	{
+		float e,f,r=0;
+		cout<<"Please enter a number:";
+		cin>>e;
+		cout<<"Please enter another number:";
+		cin>>f;
+		r=e*f;
+		cout<<e<<"*"<<f<<"="<<r<<endl;
+		return e*f;
+	}
+	float div()
+	{
+		float g,h,r=0;
+		cout<<"Please enter a number:";
+		cin>>g;
+		cout<<"Please enter another number:";
+		cin>>h;
+		r=g/h
+		cout<<g<<"/"<<h<<"="<<r<<endl;
+		return g/h;
+	}
+};
+	
+void main()
+{
+	calc c;
+	int choice;
+	cout<<"                  ____CALCULATOR____"<<endl;
+	cout<<endl;
+	cout<<endl;
+	cout<<endl;
+	do
+	{	
+		cout<<"[1]Summation"<<endl;
+		cout<<"[2]Subtruction"<<endl;
+		cout<<"[3]Multiplication"<<endl;
+		cout<<"[4]Division"<<endl;
+		cout<<"[5]Exit"<<endl;
+		cout<<endl;
+		cout<<endl;
+		cout<<"Please enter Your choice "<<endl;
+		cin>>choice;
+		system("CLS");
+		float result;
+		switch(choice)
+		{
+		case 1:
+			result=c.sum();
+			cout<<"Summation Result="<<result<<endl;
+			break;
+		case 2:
+			result=c.sub();
+			cout<<"Subtruction Result="<<result<<endl;
+			break;
+		case 3:
+			result=c.mul();
+			cout<<"Multiplication Result="<<result<<endl;
+			break;
+		case 4:
+			result=c.div();
+			cout<<"Division Result="<<result<<endl;
+			break;
+		case 5:
+			break;
+		default:
+			cout<<"You have selected wrong choice"<<endl;
+		}
+		getch();
+		system("CLS");
+
+
+	}while(choice!=5);
+}
+

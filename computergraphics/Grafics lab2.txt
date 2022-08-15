@@ -1,0 +1,31 @@
+#include<iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+using namespace std;
+
+int main()
+{
+    int rn, na=97,nA=65,n1=49;
+    srand (time(NULL));
+    rn=rand() % 10 + 1;
+
+    char ara[26],arA[26],ar1[10],ars[10];
+    for(int i=0;i<26;i++)
+    {
+        ara[i]=na;
+        arA[i]=nA;
+        na+=1;
+        nA+=1;
+    }
+    for(int i=0;i<10;i++)
+    {
+        ar1[i]=n1;
+        n1+=1;
+    }
+
+    for(int i=0;i<26;i++)
+    {
+        cout<<ara[i]<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,59 @@
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class RegForm extends JFrame /*implements ActionListener*/{
+	JLabel NameLabel, AddressLabel, ContactLabel;
+	JTextField NameText,AddressText,ContactText;
+	JButton SaveButton, ExitButton;
+	
+	RegForm()
+	{
+		Container con=getContentPane();
+		FlowLayout flow = new FlowLayout();
+        con.setLayout(flow);
+        NameLabel= new JLabel("Name");
+        AddressLabel= new JLabel("Adress");
+        ContactLabel= new JLabel("Contact");
+        
+        NameText=new JTextField(10);
+        AddressText=new JTextField(10);
+        ContactText=new JTextField(10);
+        
+        SaveButton = new JButton("Save");
+        ExitButton = new JButton("Exit");
+        
+        
+        
+        con.add(NameLabel);
+        con.add(NameText);
+        con.add(AddressLabel);
+        con.add(AddressText);
+        con.add(ContactLabel);
+        con.add(ContactText);
+        con.add(SaveButton);
+        con.add(ExitButton);
+        
+        setSize(200,200);
+        setTitle("Registration Form.");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	 public void actionPerformed(ActionEvent event)
+	 {
+	            String n = NameText.getText();
+	            String a = AddressText.getText();
+	            String c = ContactText.getText();
+	               JOptionPane.showMessageDialog(getContentPane(),"LOGIN SUCCESSFUL"); 
+	               JOptionPane.showMessageDialog(getContentPane(),"LOGIN FAILED"); 
+	                         
+	        
+	    }
+	    
+        
+        public static void main(String args[])
+        {
+            RegForm RF = new RegForm();
+            RF.setVisible(true);
+        }
+}

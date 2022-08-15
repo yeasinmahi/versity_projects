@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	int a,i;
+	long long int s=1;
+	printf("\nPls enter a number less than 25\n");
+	scanf("%d",&a);
+	printf("You enter %d\n",a);
+	for(i=a;i>1;i--)
+		s=s*i;
+	printf("The factorial of %d is %lld\n",a,s);
+	getch();
+}

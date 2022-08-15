@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+void main()
+{
+	cout<<"Pls enter a traiangle value."<<endl;
+	int n;
+	cin>>n;
+	int i;
+	for(i=1;i<=n;i++)
+	{
+		char ch=96;
+		for(int j=0;j<n-i;j++)
+		{
+			cout<<' ';
+		}
+		for(int k=n;k>n-i;k--)
+		{
+			ch+=1;
+			cout<<ch;
+		
+		}
+		for(int l=n-1;l>n-i;l--)
+		{
+			ch-=1;
+			cout<<ch;
+		}
+		cout<<endl;
+	}
+}

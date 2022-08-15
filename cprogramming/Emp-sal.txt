@@ -1,0 +1,71 @@
+
+public class emp {
+	long empid;
+	String name;
+	String dept;
+	String designation;
+	String joinDate;
+	String dateOfBirth;
+	String contactNo;
+	String email;
+	public static void main(String arg[])
+	{
+		emp obj=new emp();
+		obj.salaryCount(manager)
+	}
+}
+
+class salary {
+	double basicSalary;
+	double houseRant;
+	double medical;
+	double totalSalAmount;
+	int commision;
+	
+	void salaryCount(dept)
+	{
+		double totalAmount;
+		double comm;
+		if(dept=="sales")
+		{
+			if(designation=="manager")
+			{
+				basicSalary=20000.00;
+				houseRant=10000.00;
+				medical=1000.00;
+				commision=30;
+			}
+			else
+			{
+				basicSalary=10000.00;
+				houseRant=5000.00;
+				medical=500.00;
+				commision=20;
+			}
+		}
+		else
+		{
+			if(designation=="manager")
+			{
+				basicSalary=20000.00;
+				houseRant=10000.00;
+				medical=1000.00;
+				commision=0;
+			}
+			else
+			{
+				basicSalary=10000.00;
+				houseRant=5000.00;
+				medical=500.00;
+				commision=0;
+			}
+		}
+		totalAmount=basicSalary+houseRant+medical;
+		comm=totalAmount*commision/100;
+		totalSalAmount=totalAmount+comm;
+	}
+
+}
+	
+	
+}

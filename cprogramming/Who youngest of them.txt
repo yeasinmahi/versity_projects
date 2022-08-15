@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	int ram,shy,aja;
+	printf("Pls Enter age of Ram Shyam and Ajay\n");
+	scanf("\n%d\n%d\n%d",&ram,&shy,&aja);
+	printf("You entered age is\n\tRam=%d\n\tSayam=%d\n\tAjay=%d\n",ram,shy,aja);
+	if(ram<shy&&ram<aja)
+	{
+		if(ram<shy&&ram<aja)
+		printf("Ram is the youngest of them\n");
+		else//("shy=aja&&aja=shy");
+		printf("Ajay and Shyam are equal at age.\n");}
+	else if(shy<ram&&shy<aja)
+	{
+		 if(shy<ram&&shy<aja)
+		printf("Shyam is the youngest of them\n");
+		 else//("ram=aja&&aja=ram");
+		 printf("Ram and Ajay are equal at age.\n");}
+	else if(aja<shy&&aja<ram)
+	{
+		if(aja<shy&&aja<ram)
+		printf("Ajay is the youngest of them\n");
+		else//("ram=shy&&shy=ram");
+		printf("Ram and Shyam are equal at age.\n");}
+	
+	else
+		printf("Everybody are equal at age.\n");
+	getch();
+}
+

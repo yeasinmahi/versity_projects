@@ -1,0 +1,372 @@
+#include<iostream>
+#include<stdio.h>
+#include<conio.h>
+using namespace std;
+class datetime
+{
+private:
+	int h,m,s,d,y,mo;
+public:
+	
+	datetime()
+	{
+		h=m=s=0;
+	}
+	datetime(int hour,int minute,int sec)
+	{
+		h=hour;
+		m=minute;
+		s=sec;
+	}
+	datetime(int day,int month,int year,int hour,int minute,int sec)
+	{
+		d=day;
+		mo=month;
+		y=year;
+		h=hour;
+		m=minute;
+		s=sec;
+	}
+	void time()
+	{
+		cout<<"The Time is "<<h<<":"<<m<<":"<<s<<endl;
+	}
+	void date()
+	{
+		cout<<"The Date is "<<d<<"/"<<mo<<"/"<<y<<endl;
+	}
+	void datetimes()
+	{
+		cout<<"The Time is "<<h<<":"<<m<<":"<<s<<endl;
+		cout<<"The Date is "<<d<<"/"<<mo<<"/"<<y<<endl;
+	}
+	void gmttime()
+	{
+		int gh,dh=0,dif=0,dd=0,dm=0,dy=0,temph=h,tempm=m,temps=s,tempd=d,tempmo=mo,tempy=y;
+		cout<<"Enter GMT hour."<<endl;
+		cin>>gh;
+		h+=gh;
+		if(h>23)
+			dd=1;
+		if(h<0)
+			dd=-1;
+		dh=h%24;
+		h=dh;
+		if(h<0)
+		{
+			dif=0-h;
+			h=dif;
+		}
+		d+=dd;
+		switch(mo)
+		{
+		case 1:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 2:
+			if(d>28)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 3:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=28;
+				dm=-1;
+			}
+			break;
+		case 4:
+			if(d>30)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 5:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=30;
+				dm=-1;
+			}
+			break;
+		case 6:
+			if(d>30)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 7:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=30;
+				dm=-1;
+			}
+			break;
+		case 8:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 9:
+			if(d>30)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 10:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=30;
+				dm=-1;
+			}
+			break;
+		case 11:
+			if(d>30)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=31;
+				dm=-1;
+			}
+			break;
+		case 12:
+			if(d>31)
+			{
+				d=1;
+				dm=1;
+			}
+			if(d<=0)
+			{
+				d=30;
+				dm=-1;
+			}
+			break;
+		}
+		mo+=dm;
+		if(mo<=0)
+		{
+			mo=12;
+			dy=-1;
+		}
+
+		if(mo>12)
+		{
+			mo=1;
+			dy=1;
+		}
+		y+=dy;
+		cout<<"The GMT Time is "<<h<<":"<<m<<":"<<s<<endl;
+		cout<<"The GMT Date is "<<d<<"/"<<mo<<"/"<<y<<endl;
+		h=temph;
+		m=tempm;
+		s=temps;
+		d=tempd;
+		mo=tempmo;
+		y=tempy;
+	}
+	
+	void day()
+	{
+		int din=0;
+	
+
+		switch(mo)
+		{
+		case 1:
+			din+=d;
+			break;
+		case 2:
+			din+=d+31;
+			break;
+		case 3:
+			din+=d+59;
+			break;
+		case 4:
+			din+=d+90;
+			break;
+		case 5:
+			din+=d+120;
+			break;
+		case 6:
+			din+=d+151;
+			break;
+		case 7:
+			din+=d+181;
+			break;
+		case 8:
+			din+=d+212;
+			break;
+		case 9:
+			din+=d+243;
+			break;
+		case 10:
+			din+=d+273;
+			break;
+		case 11:
+			din+=d+304;
+			break;
+		case 12:
+			din+=d+334;
+			break;
+		}
+		din+=(y*365);
+		int dif=y/4;
+		din+=dif;
+		int a=0;
+		a=din%7;
+		switch(a)
+		{
+		case 0:
+			cout<<"Your Required Day is Friday."<<endl;
+			break;
+		case 1:
+			cout<<"Your Required Day is Saterday."<<endl;
+			break;
+		case 2:
+			cout<<"Your Required Day is Sunday."<<endl;
+			break;
+		case 3:
+			cout<<"Your Required Day is Monday."<<endl;
+			break;
+		case 4:
+			cout<<"Your Required Day is Tuesday."<<endl;
+			break;
+		case 5:
+			cout<<"Your Required Day is Wednesday."<<endl;
+			break;
+		case 6:
+			cout<<"Your Required Day is Tusday."<<endl;
+			break;
+		}
+	}
+};
+	void main()
+	{
+		int p,q,r,d,m,y;
+		//int tp=0,tq=0,tr=0,td=0,tm=0,ty=0;
+		cout<<"Enter Today's Date."<<endl;
+		cout<<"Day=";
+		cin>>d;
+		cout<<"Month=";
+		cin>>m;
+		cout<<"Year=";
+		cin>>y;
+
+		cout<<"Enter Time."<<endl;
+		cout<<"Hour=";
+		cin>>p;
+		cout<<"Minite=";
+		cin>>q;
+		cout<<"Second=";
+		cin>>r;
+		datetime a;
+		datetime b(p,q,r);
+		datetime c(d,m,y,p,q,r);
+		system("CLS");
+
+		int ch;
+		do
+		{
+			cout<<"\t\t\t______Clock & Calender______\n\n\n";
+
+
+			cout<<"[1] Disply Time."<<endl;
+			cout<<"[2] Disply Date."<<endl;
+			cout<<"[3] Disply Time & Date."<<endl;
+			cout<<"[4] Disply Time & Date According To GMT."<<endl;
+			cout<<"[5] Disply Name Of The Day."<<endl;
+			cout<<"[6] Exit."<<endl;
+
+			cout<<"\n\n\n";
+			cout<<"Pls Enter Your Choice."<<endl;
+			cin>>ch;
+			system("CLS");
+			switch(ch)
+			{
+			case 1:
+				c.time();
+				break;
+			case 2:
+				c.date();
+				break;
+			case 3:
+				c.datetimes();
+				break;
+			case 4:
+				c.gmttime();
+				break;
+			case 5:
+				c.day();
+				break;
+			case 6:
+				break;
+			}
+			getch();
+			system("CLS");
+		}while(ch!=6);
+		
+	}
+	

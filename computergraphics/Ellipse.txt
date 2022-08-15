@@ -1,0 +1,121 @@
+// ellipse.cpp : Defines the entry point for the console application.
+//
+
+//#include <stdafx.h>
+#include <stdio.h>
+#include <GL/glut.h>
+#include <math.h>
+
+//Draw Dot
+void drawDot (GLint x, GLint y, GLfloat r, GLfloat g, GLfloat b)
+{ 
+	glColor3f(1.0,0.5,0.0);
+	glBegin (GL_POINTS);
+	glVertex2i (x,y);
+	glEnd();
+}
+
+//Draw Symmetric pixel
+void symmetryPoints(int x, int y, int xc, int yc, float r, float g, float b)
+{ 
+	drawDot (xc + x, yc + y, r,g,b); //right top
+	drawDot (xc - x, yc + y,r,g,b);	//left top
+	drawDot (xc + x, yc - y,r,g,b);	//bottom right
+	drawDot (xc - x, yc - y,r,g,b);	//bottom left
+}
+
+void Ellipse (int a, int b, int xc, int yc, float r, float g, float bl)
+{ 
+	int aa,bb,aa2,bb2,p,fx,fy,x,y;
+
+  aa = a*a;
+  bb = b*b;
+  aa2 = 2*aa;
+  bb2 = 2*bb;
+  p = bb - b*aa + aa/4;
+  fx = 0;
+  fy = aa2*b;
+  x = 0;
+  y = b;
+  symmetryPoints(x,y,xc,yc,r,g,bl);
+  while (fx < fy)
+  { x++;
+    fx =fx+bb2;
+    if (p >= 0)
+    { y--;
+      fy=fy-aa2;
+    }
+    if (p < 0)
+     p =p+bb+fx;
+    else
+     p =p+ bb+fx-fy;
+    symmetryPoints(x,y,xc,yc,r,g,bl);
+  }
+  p = (int)(bb*(x+0.5)*(x+0.5) + aa*(y-1)*(y-1)-aa*bb);
+  while (y > 0)
+  { y--;
+    fy =fy-aa2;
+    if (p <= 0)
+    { x++;
+      fx =fx+bb2;
+    }
+    if (p > 0)
+         p =p+ aa-fy;
+    else
+         p =p+aa-fy+fx;
+    symmetryPoints(x,y,xc,yc,r,g,bl);
+
+  }
+}    
+
+void myDisplay(void)
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	int x,y,a,b;
+	printf("Enter X co-ordinate=");
+	scanf("%d",&x);
+	printf("Enter Y co-ordinate=");
+	scanf("%d",&y);
+	printf("Enter major axis=");
+	scanf("%d",&a);
+	printf("Enter minor axis=");
+	scanf("%d",&b);
+
+	glColor3f(0.0,0.0,1.0);
+	glBegin (GL_LINES);
+	glVertex2i (x-250,y);
+	glVertex2i (x+250,y);
+	glEnd();
+	glBegin (GL_LINES);
+	glVertex2i (x,y-200);
+	glVertex2i (x,y+200);
+	glEnd();
+
+	Ellipse (a,b,x,y,0,1,0);
+
+	glFlush();
+}
+
+void myInit(void)
+{
+	glClearColor(1.0, 1.0, 1.0, 0.0);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glPointSize(4.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-320.0, 320.0, -240.0, 240.0);
+}
+
+
+
+void main(int argc, char** argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(640, 480);
+	glutInitWindowPosition(100, 150);
+	glutCreateWindow("Ellipse");
+	glutDisplayFunc(myDisplay);
+	myInit();
+	glutMainLoop();
+}

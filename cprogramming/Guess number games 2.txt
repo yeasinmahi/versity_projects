@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void main()
+{
+	srand(time(NULL));
+	printf("\n\t\tGUESS NUMBER\n\n");
+r:	int v;
+	v=rand();
+	int r;
+	r=v%100;
+	char ex,key;
+	int i,cnt=0;
+
+	if(r>=0&&r<=100)
+	{
+			printf("Pls Guess a number fron 1 to 100.\n");
+g:		cnt+=1;
+		fflush(stdin);
+		scanf("%d",&i);
+	if(i>r)
+	{
+		printf("Number is smaller than %d.\n",i);
+		printf("Pls Guess number which is smaller than %d\n",i);
+		goto g;
+	}
+	else if(i<r)
+	{
+		printf("Number is greater than %d.\n",i);
+		printf("Pls Guess number which is greater than %d\n",i);
+			goto g;
+	}
+	else
+		printf("Congratulation! Your number match.\n\n You have try for %d times.\n",cnt);
+	}
+	else
+		printf("\nPls Enter a valid number.\n");
+				printf("\n\t PRESS Y FOR CONTINUE.\n\t PRESS ANY KEY TO EXIT.\n");
+				fflush(stdin);
+				scanf("%c",&key);
+				switch(key)
+				{
+				case 'Y':
+				case 'y':
+					goto r;
+				default:
+					printf("\nThank You for playing \"GUESS NUMBER\" games.\n\n");
+					fflush(stdin);
+					scanf("%c",&ex);
+				}
+}

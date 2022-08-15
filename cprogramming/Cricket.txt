@@ -1,0 +1,145 @@
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void main()
+{
+	srand(time(NULL));
+	cout<<endl;
+	cout<<endl;
+ap:	system("CLS");
+	cout<<"                   Welcome to Criket Games"<<endl;
+	cout<<"Which over do you want to play?"<<endl;
+	cout<<"Over=";
+	int ball=0,over=0,run=0;
+x:	cin>>over;
+	if(over>0&&over<11)
+	{
+	ball=over*6;
+	cout<<"Which Wicket do you want?"<<endl;
+	cout<<"Wicket=";
+	int wicket;
+y:	cin>>wicket;
+	if(wicket>2&&wicket<11)
+	{
+	int cnt=0;
+	int o=0;
+	for(int i=ball;i>=0;i--)
+	{
+		cnt+=1;
+			if(wicket!=0)
+			{
+				cout<<"Pls Press ENTER for Play Shoot";
+				getch();
+				system("CLS");
+				int r=rand();
+				int s=r%10;
+				switch(s)
+				{
+				case 1:
+					run+=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You take 1 run."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 2:
+					run+=2;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You take 2 run."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 3:
+					run+=3;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You take 3 run."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 4:
+					run+=4;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You take 4 run."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 5:
+					wicket-=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  Oh! You got RUN out."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 6:
+					run+=6;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You take 6 run."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 7:
+					wicket-=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  Oh! You got BOLD out."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 8:
+					wicket-=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  Oh! You got CATCH out."<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 9:
+					run+=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  You Find Extra Run On No Ball."<<endl;
+					cout<<"  Your score is ";
+					cout<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				case 0:
+					wicket-=1;
+					cout<<"  You face "<<o<<" Over "<<cnt<<" Ball."<<endl;
+					cout<<"  Oh! You got L.B.W"<<endl;
+					cout<<"  Your score is "<<run<<"."<<endl;
+					cout<<"  Your remaining Wicket is "<<wicket<<"."<<endl;
+					break;
+				}
+				
+		if(cnt==6)
+		{
+			o+=1;
+			cnt=0;
+			cout<<"You Finish "<<o<<" Over."<<endl;
+		}
+			}
+	}
+			cout<<"Oh! You Lost All Wicket."<<endl;
+			cout<<"So Your Final Score Is "<<run<<"."<<endl;
+			cout<<endl;
+			cout<<endl;
+			cout<<"Press P for play again."<<endl;
+			cout<<"Press any key to exit."<<endl;
+			char ch;
+			cin>>ch;
+			switch(ch)
+			{
+			case 'p':
+			case 'P':
+				goto ap;
+			default:
+				exit(1);
+			}
+	}
+	else
+	cout<<"Pls Enter Withing 3-10 Wicket."<<endl;
+	goto y;
+	}
+	else
+	cout<<"Pls Enter Withing 1-10 Over."<<endl;
+	goto x;
+}

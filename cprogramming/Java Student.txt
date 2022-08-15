@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class work 
+{
+	public static void main(String arg[])
+	{	
+		System.out.println("How Many Student Do You Want To Add This DataBase?");
+		Scanner imp=new Scanner(System.in);
+		int count=imp.nextInt();
+		student info[]=new student[count];
+		for(int i=0;i<count;i++)
+		{
+			info[i]= new student();
+		}
+		System.out.println("Pls Enter Student Information");
+		for(int i=0;i<count;i++)
+		{
+			int no=i+1;
+			System.out.println("Enter Student "+no+" Information.");
+			System.out.print("Student ID: ");
+			int ids=imp.nextInt();
+			info[i].id= ids;
+			System.out.print("Bangla Marks: ");
+			int ban=imp.nextInt();
+			info[i].bangla=ban;
+			System.out.print("English Marks: ");
+			int eng=imp.nextInt();
+			info[i].english=eng;
+		}
+		
+	}
+}
+class student
+{
+	int id;
+	int bangla=0;
+	int english=0;
+	
+}

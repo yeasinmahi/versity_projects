@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D191A4D-FB6C-4B5C-81F8-93746F3413C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DxBall2</RootNamespace>
+    <AssemblyName>DxBall2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameUi.Designer.cs">
+      <DependentUpon>GameUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainUi.Designer.cs">
+      <DependentUpon>MainUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructionUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructionUi.Designer.cs">
+      <DependentUpon>InstructionUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUi.Designer.cs">
+      <DependentUpon>AboutUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameUi.resx">
+      <DependentUpon>GameUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainUi.resx">
+      <DependentUpon>MainUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructionUi.resx">
+      <DependentUpon>InstructionUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutUi.resx">
+      <DependentUpon>AboutUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_7s0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\etil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inde4x5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Life.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DX ball logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Instraction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

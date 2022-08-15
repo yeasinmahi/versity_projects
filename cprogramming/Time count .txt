@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<time.h>
+#include<conio.h>
+void main()
+{
+	int n,f;
+	time_t st_time,end_time;
+	time(&st_time);
+	for(n=0;n<100000;n++)
+		printf("Yeasin Arafat\n");
+	time(&end_time);
+	printf("\n\n\n printf takes %d seconds.\n",(end_time-st_time));
+	getch();
+	printf("\n Now lets see about puts function..........");
+	time(&st_time);
+	for(n=0;n<100000;n++)
+		puts("Yeasin Arafat");
+	time(&end_time);
+	printf("\n\n\n puts takes %d seconds.\n",(end_time-st_time));
+	getch();
+}

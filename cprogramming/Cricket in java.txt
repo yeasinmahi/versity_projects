@@ -1,0 +1,136 @@
+import java.util.*;
+
+public class menu
+{
+	public static void main(String arg[])
+	{
+		Scanner imp = new Scanner(System.in);
+		
+		/*System.out.println(i);
+		Random generator = new Random();
+		byte r = (byte) generator.nextInt();
+		System.out.println(r);
+		for(int j=0;j<15;j++)
+		{
+		int abc= (int)(Math.random()*10);
+		System.out.println(abc);
+		}*/
+		System.out.println("\n\t\t***Welcome to CRICKET game***");
+		
+		int choice;
+		do
+		{
+			menud();
+			System.out.print("Pls Enter Your Choice ");
+			choice= imp.nextInt();
+			switch(choice)
+			{
+			case 1: newgame(); break;
+			case 2: highscore(); break;
+			case 3: option(); break;
+			case 4: about(); break;
+			case 5: break;
+			default: System.out.println("Pls Enter Correct Menu Item,");
+			}
+		} while(choice!=5);
+		
+	}
+	
+	static void menud()
+	{
+		System.out.println("\n\n\t1. New Game\n\t2. Highscore\n\t3. Option\n\t4. About\n\t5. Exit\n");
+	}
+	static void newgame()
+	{
+		int run=0,counter=0,overcnt=0,ballcnt=0;
+		System.out.println("Which Over Do You Want to Play?");
+		Scanner imp = new Scanner(System.in);
+		System.out.print("Over=");
+		int over= imp.nextInt();
+		System.out.println("Which Wicket Do You Want to Play?");
+		System.out.print("Wicket=");
+		int wicket=imp.nextInt();
+		int ball=over*6;
+		loop1:
+		for(int i=1;i<=ball;i++)
+		{
+			if(wicket>0)
+			{
+				System.out.println("Pls Press 1 to play Next Shoot & 2 for EXIT.");
+				int tak=(int)imp.nextInt();
+				if(tak!=1&&tak!=2)
+				{
+					System.out.println("Pls! Enter Properly.");
+				}
+				else if(tak==2)
+				{
+					break loop1;
+				}
+				counter+=1;
+				overcnt=counter/6;
+				ballcnt=counter%6;
+				int action= (int) (Math.random()*10);
+				switch(action)
+				{
+				case 1: System.out.println("You got 1 run.");
+						run+=1;
+						break;
+				case 2: System.out.println("You got 2 run.");
+						run+=2;
+						break;
+				case 3: System.out.println("You got 3 run.");
+						run+=3;
+						break;
+				case 4: System.out.println("Waooo!!! You got 4 run.");
+						run+=4;
+						break;
+				case 5: System.out.println("You Got A Extra Run.");
+						run+=1;
+						break;
+				case 6: System.out.println("Great!!! You got 6 run.");
+						run+=6;
+						break;
+				case 7: System.out.println("Ops! Bold Out.");
+						wicket-=1;
+						break;
+				case 8: System.out.println("Ops! LBW.");
+						wicket-=1;
+						break;
+				case 9: System.out.println("Ops! Catch Out.");
+						wicket-=1;
+						break;
+				case 0: System.out.println("Ops! Run Out.");
+						wicket-=1;
+				}
+				
+			}
+			
+			else
+			{
+				System.out.println("Ohh You Lost All Wicket.");
+				break loop1;
+			}
+			System.out.println("You Have Faced "+overcnt+" Over & "+ballcnt+" Ball.");
+			System.out.println("You Have Got "+run+" Run.");
+			System.out.println("Remainig Wicket is "+wicket+".");
+		}
+		System.out.println("Your Final Score is "+run+".");
+	}
+	static void highscore()
+	{
+		System.out.println("\tHighscore is ");
+	}
+	static void option()
+	{
+		System.out.println("\t\tAudio\n\n\t1. On\n\t2. Off");
+	}
+	void help()
+	{
+		System.out.println("Just Check Your Luck & Enjoy.......");
+	}
+	static void about()
+	{
+		System.out.println("\tMade By Md. Yeasin Arafat\n\tBsC in CSE at AIUB\n\tID: 11-18279-1");
+	}
+}
+

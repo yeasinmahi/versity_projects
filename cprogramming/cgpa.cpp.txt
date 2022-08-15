@@ -1,0 +1,66 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class stduent
+{
+public:
+	float cgpa()
+	{
+	int i,sub,t[10];
+	cout<<"Enter the number of subject."<<endl;
+	cin>>sub;
+	float cgpa=0;
+	for(i=1;i<=sub;i++)
+	{
+		cout<<"Enter Marks=";
+		cin>>t[i];
+		if(t[i]>=0&&t[i]<=100)
+		{
+		
+			if(t[i]>=0&&t[i]<50)
+				cgpa+=0;
+			else if(t[i]>=50&&t[i]<54)
+				cgpa+=1.25;
+			else if(t[i]>=54&&t[i]<58)
+				cgpa+=1.5;
+			else if(t[i]>=58&&t[i]<62)
+				cgpa+=1.75;
+			else if(t[i]>=62&&t[i]<66)
+				cgpa+=2;
+			else if(t[i]>=66&&t[i]<70)
+				cgpa+=2.25;
+			else if(t[i]>=70&&t[i]<74)
+				cgpa+=2.5;
+			else if(t[i]>=74&&t[i]<78)
+				cgpa+=2.75;
+			else if(t[i]>=78&&t[i]<82)
+				cgpa+=3;
+			else if(t[i]>=82&&t[i]<86)
+				cgpa+=3.25;
+			else if(t[i]>=86&&t[i]<90)
+				cgpa+=3.5;
+			else if(t[i]>=90&&t[i]<94)
+				cgpa+=3.75;
+			else
+				cgpa+=4;
+		}
+		else
+		{
+			cout<<"Enter a valid marks from 1 to 100"<<endl;
+			i-=1;
+		}
+		
+	}
+
+	float total=0;
+	total=cgpa/sub;
+	cout<<"Your cgpa Is "<<total<<endl;
+	return total;
+	}
+};
+void main()
+{
+	stduent c;
+	c.cgpa();
+	getch();
+}

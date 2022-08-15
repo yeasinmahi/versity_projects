@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <glut.h>
+#include <Math.h>
+
+void init(void)
+{
+
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-512, 512, -384, 384);
+}
+void display()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glPointSize(2.0);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	int select, len;
+	float x1, y1, x2, y2, xinc, yinc, x, y;
+	float xmin,xmax,ymin,ymax;
+
+	//printf("Enter Your Choice\n\t 1. DDA\n\t 2. Bresenham\n\t 3. Exit\n");
+	//scanf_s("%d", &select);
+	printf("Enter View Point\n\n\tXmin=");
+	scanf_s("%f", &xmin);
+	printf("\tYmin=");
+	scanf_s("%f", &ymin);
+	printf("\tXmax=");
+	scanf_s("%f", &xmax);
+	printf("\tYmax=");
+	scanf_s("%f", &ymax);
+
+	glBegin(GL_LINE_LOOP);
+	glVertex2f(xmin,ymin);
+	glVertex2f(xmax, ymin);
+	glVertex2f(xmax, ymax);
+	glVertex2f(xmin, ymax);
+	glEnd();
+	glFlush();
+
+	printf("Enter Line Initial Point: ");
+	scanf_s("%f", &x1);
+	scanf_s("%f", &y1);
+	printf("Enter Line Final Point: ");
+	scanf_s("%f", &x2);
+	scanf_s("%f", &y2);
+
+	 	len = abs(x2 - x1);
+		if (abs(y2 - y1)>len)
+			len = abs(y2 - y1);
+		xinc = (x2 - x1) / len;
+		yinc = (y2 - y1) / len;
+		x = x1 + xinc;
+		y = y1 + yinc;
+		for (int i = 1; i <= len; i++)
+		{
+			glBegin(GL_POINTS);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			if (x >= xmin && y >= ymin && x <= xmax && y <= ymax)
+			{
+				glColor3f(0.0f, 1.0f, 0.0f);
+			}
+			if (floor(x) == xmin || floor(x) == xmax || floor(y) == ymin || floor(y) == ymax)
+			{
+				glBegin(GL_POINTS);
+				glPointSize(5.0);
+				glColor3f(0.0f, 0.0f, 1.0f);
+				glVertex2f(x,y);
+				glEnd();
+			}
+			glVertex2f(floor(x), floor(y));
+			x += xinc;
+			y += yinc;
+			glEnd();
+		}
+		glFlush();
+}
+
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowPosition(450, 100);
+	glutInitWindowSize(700, 600);
+	glutCreateWindow("Lab 3");
+	init();
+	glutDisplayFunc(display);
+	glutMainLoop();
+	return 0;
+
+}

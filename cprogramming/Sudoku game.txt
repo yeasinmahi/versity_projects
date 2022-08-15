@@ -1,0 +1,235 @@
+
+// Inclusion guards added so this file will only be compiled once within its own compilation module (within the object file)
+#ifndef __LAMOTHE_H__		// Added HH 26-11-'08
+#define __LAMOTHE_H__		// Added HH 26-11-'08
+
+
+//   cjm  4-10-'01
+
+// INCLUDES ///////////////////////////////////////////////
+
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+
+// DEFINES ////////////////////////////////////////////////
+
+#define MAX_X		77  // maximum x position for player
+#define SCROLL_POS   24  // the point that scrolling occurs
+
+// PROTOTYPES /////////////////////////////////////////////
+
+void Init_Graphics(void);
+void Set_Color(int fcolor, int bcolor);
+void Draw_String(int x,int y, char *string);
+
+// GLOBALS ////////////////////////////////////////////////
+
+// Variables declared extern because as projects grow in size possible variable name conflicts,
+// may occur if this header file is included in multiple files.
+extern CONSOLE_SCREEN_BUFFER_INFO con_info;		// holds screen info		// Added: extern, declare variable here but define it in lamothe.cpp file
+extern HANDLE hconsole;							// handle to console		// Added: extern, declare variable here but define it in lamothe.cpp file
+
+
+#endif			
+
+
+
+#include <iostream>
+using namespace std;
+
+////#include <lamothe.h>
+
+
+int grid[9][9] = 
+		{{1, 8, 5, 4, 3, 6, 2, 9, 7},
+	{4, 3, 7, 5, 9, 2, 8, 1, 6},
+	{6, 9, 2, 8, 1, 7, 3, 4, 5},
+	{3, 7, 6, 2, 8, 9, 4, 5, 1},
+	{2, 1, 4, 3, 7, 5, 9, 6, 8},
+	{9, 5, 8, 6, 4, 1, 7, 3, 2},
+	{8, 6, 3, 1, 2, 4, 5, 7, 9},
+	{7, 2, 1, 9, 5, 3, 6, 8, 4},
+	{5, 4, 9, 7, 6, 8, 1, 2, 3}};
+
+void main(){	
+	void draw_grid();
+
+	draw_grid();
+	
+	cin.get();	
+}  
+
+
+void draw_grid() {
+	int i, j;
+	void drawch(int, int, int);
+	int map(int);
+
+	Init_Graphics();
+	Set_Color(15,15);  
+
+
+	//top row
+	Set_Color(15, 0);
+	drawch(0, 0, 218);
+	for(i=1; i<24; i++)
+		if(i==8 || i==16)
+			drawch(i, 0, 194);
+		else
+			drawch(i, 0, 196);
+	drawch(24, 0, 191);
+
+	// upper middle row
+	drawch(0, 8, 195);
+	for(i=1; i<24; i++)
+		if(i==8 || i==16)
+			drawch(i, 8, 197);
+		else
+			drawch(i, 8, 196);
+	drawch(24, 8, 180);
+
+	// lower middle row
+	drawch(0, 16, 195);
+	for(i=1; i<24; i++)
+		drawch(i, 16, 196);
+	drawch(24, 16, 180);
+
+	// left side
+	for(i=1; i<24; i++)
+		drawch(0, i, 179);
+
+	// left middle vertical
+	drawch(0, 8, 196);
+	for(i=1; i<24; i++)
+		if(i==8 || i==16)
+			drawch(8, i, 197);
+		else
+			drawch(8, i, 179);
+	drawch(8, 24, 193);
+
+	// right middle vertical
+	drawch(0, 16, 196);
+	for(i=1; i<24; i++)
+		if(i==8 || i==16)
+			drawch(16, i, 197);
+		else
+			drawch(16, i, 179);
+	drawch(16, 24, 193);
+
+	// right side
+	for(i=1; i<24; i++)
+		drawch(24, i, 179);
+
+	// bottom row
+	drawch(0, 24, 192);
+	for(i=1; i<24; i++)
+		if(i==8 || i==16)
+			drawch(24, i, 193);
+		else
+			drawch(i, 24, 196);
+	drawch(24, 24, 217);
+
+	drawch(0, 8, 195);
+	drawch(0, 16, 195);
+	drawch(24, 8, 180);
+	drawch(24, 16, 180);
+
+	int cell;
+	for(i=1; i<24; i++)
+		for(j=1; j<24; j++){
+			if((i%2 == 0) && (i%8 != 0))
+				if((j%2 == 0) && (j%8 != 0)){
+					Draw_String(i, j, "");
+					cell = grid[map(j)][map(i)];
+					if(cell > 0)
+						cout << cell;
+					else
+						cout << " ";}
+		}
+		Draw_String(78, 24, "");
+}
+
+void drawch(int x, int y, int ch){
+	char str[] = "?";
+	str[0] = ch;
+	Draw_String(x, y, str);
+}
+
+int map(int k){
+	int m = k/2;
+	if(k<8)
+		return m-1;
+	else if(k<16)
+		return m-2;
+	else
+		return m-3;
+}
+
+
+
+
+//	
+//#include "lamothe.h"		// Added HH 26-11-'08
+
+
+
+CONSOLE_SCREEN_BUFFER_INFO con_info;	// holds screen info		// Added: define the variable here
+HANDLE hconsole;						// handle to console		// Added: define the variable here
+
+
+// FUNCTIONS //////////////////////////////////////////////
+
+void Init_Graphics(void)
+{
+	// this function initializes the console graphics engine
+
+	COORD console_size = {80,25}; // size of console
+
+	// open i/o channel to console screen
+	hconsole=CreateFile(TEXT("CONOUT$"),
+		GENERIC_WRITE | GENERIC_READ,
+		FILE_SHARE_READ | FILE_SHARE_WRITE,
+		0L, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0L);
+
+	// make sure we are in 80x25
+	SetConsoleScreenBufferSize(hconsole,console_size);
+
+	// get details for console screen
+	GetConsoleScreenBufferInfo(hconsole,&con_info);
+
+} // end Init_Graphics
+
+///////////////////////////////////////////////////////////
+
+void Set_Color(int fcolor, int bcolor=0)
+{
+	// this function sets the color of the console output
+	SetConsoleTextAttribute(hconsole,(WORD)((bcolor << 4) | fcolor));
+
+} // Set_Color
+
+///////////////////////////////////////////////////////////
+
+void Draw_String(int x,int y, char *string)
+{
+	// this function draws a string at the given x,y
+
+	COORD cursor_pos; // used to pass coords
+
+	// set printing position
+	cursor_pos.X = x;
+	cursor_pos.Y = y;
+	SetConsoleCursorPosition(hconsole,cursor_pos);
+
+	// print the string in current color
+	printf("%s",string);
+
+} // end Draw_String
+
+
+
+
+
+

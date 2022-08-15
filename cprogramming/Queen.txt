@@ -1,0 +1,131 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+
+int i,j;
+int queen[8][8],temp[8][8],temp2[8][8];
+
+void initial(){
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            queen[i][j]=0;
+            temp[i][j]=0;
+            temp2[i][j]=0;
+        }
+    }
+}
+
+void print(){
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%d\t",queen[i][j]);
+        }
+        printf("\n\n");
+    }
+}
+
+void printt(){
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%d\t",temp[i][j]);
+        }
+        printf("\n\n");
+    }
+}
+void printt2(){
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%d\t",temp2[i][j]);
+        }
+        printf("\n\n");
+    }
+}
+
+void putData(int m, int n){
+    temp2[m][n]=2;
+    for(int a=0;a<8;a++){
+        temp[m][a]=1;
+        temp[a][n]=1;
+        if(m+a+1<8 && n+a+1<8){
+            temp[m+a+1][n+a+1]=1;
+        }
+        if(m+a+1<8 && n-a-1>0){
+            temp[m+a+1][n-a-1]=1;
+        }
+    }
+}
+
+void removeData(int m, int n){
+    int arrM[10]={0,0,0,0,0,0,0,0,0,0};
+    int arrN[10]={0,0,0,0,0,0,0,0,0,0};
+    temp2[m][n]=0;
+    int counter=0;
+    for(int sa=0;sa<8;sa++){
+        for(int sb=0;sb<8;sb++){
+            if(temp2[sa][sb]==2){
+                arrM[counter]=sa;
+                arrN[counter]=sb;
+                counter++;
+            }
+
+        }
+
+    }
+   initial();
+   temp[0][2]=2;
+
+   for(int put=0; put<counter;put++){
+        putData(arrM[put],arrN[put]);
+
+   }
+}
+
+int backtract(int backt){
+    for(int m=0;m<8;m++){
+        if(temp2[backt][m]==2){
+            return m;
+        }
+    }
+
+}
+
+
+int main(){
+    initial();
+    temp[0][2]=2;
+    for(int k=0;k<8;k++){
+        for(int l=0;l<8;l++){
+            if(l<8 || k>=0){
+                if(temp[k][l]==0){
+                    putData(k,l);
+                    if(k==7){
+                        break;
+                    }
+                    if(k<8){
+                        k++;
+                    }
+                    l=0;
+                }
+                if(l==7){
+
+                    int reback=k-1;
+L:                  int returnV=backtract(reback);
+                    removeData(reback,returnV);
+                        k=reback;
+                        l=returnV+1;
+                        if(l==8 || l==7){
+                            reback=k-1;
+                            goto L;
+                        }
+                }
+            }else{
+                break;
+
+            }
+        }
+    }
+
+    //printt();
+    printt2();
+return 0;
+}

@@ -1,0 +1,634 @@
+#include<iostream>
+#include<math.h>
+#include<conio.h>
+#include<string>
+using std::string;
+using namespace std;
+
+
+
+
+class calc
+{
+private:
+	float a,b,r;
+public:
+	calc()
+	{
+	//	manu();
+	}
+	int choice;
+	void menu()
+	{
+		do
+		{
+		cout<<"\n\n\t\t___Calculator___\n"<<endl;
+		cout<<"\t [1]= +"<<endl;
+		cout<<"\t [2]= -"<<endl;
+		cout<<"\t [3]= *"<<endl;
+		cout<<"\t [4]= %"<<endl;
+		cout<<"\t [5]=Back."<<endl;
+
+		cout<<"  Pls! Entre Your Choice: ";
+		cin>>choice;
+		system("CLS");
+		long double result;
+		switch(choice)
+		{
+		case 1:
+			result=sum();
+			cout<<"  Summation Result="<<result<<endl;
+			getch();
+			break;
+		case 2:
+			result=sub();
+			cout<<"  Subtruction Result="<<result<<endl;
+			getch();
+			break;
+		case 3:
+			result=mul();
+			cout<<"  Multiplication Result="<<result<<endl;
+			getch();
+			break;
+		case 4:
+			result=div();
+			cout<<"  Division Result="<<result<<endl;
+			getch();
+			break;
+		case 5:
+			break;
+		default:
+			cout<<"  You Have Select Wrong Choice!!!\a"<<endl;
+			getch();
+			break;
+		}
+		system("CLS");
+
+
+	}while(choice!=5);
+
+	}
+
+	long double sum()
+	{
+	//	float a,b,r=0;
+		cout<<"  Plase entre a mnumber:";
+		cin>>a;
+		cout<<"  Plase entre another mnumber:";
+		cin>>b;
+		r=a+b;
+		cout<<"        "<<a<<"+"<<b<<"="<<r<<endl;
+		return a+b;
+	}
+	long double sub()
+	{
+		//float c,d,r=0;
+		cout<<"  Plase entre a mnumber:";
+		cin>>a;
+		cout<<"  Plase entre another mnumber:";
+		cin>>b;
+		r=a-b;
+		cout<<"        "<<a<<"-"<<b<<"="<<r<<endl;
+		return a-b;
+	}
+	long double mul()
+	{
+		//float e,f,r=0;
+		cout<<"  Plase entre a mnumber:";
+		cin>>a;
+		cout<<"  Plase entre another mnumber:";
+		cin>>b;
+		r=a*b;
+		cout<<"        "<<a<<"*"<<b<<"="<<r<<endl;
+		return a*b;
+	}
+	long double div()
+	{
+	//	float g,h,r=0;
+		cout<<"  Plase entre a mnumber:";
+		cin>>a;
+		cout<<"  Plase entre another mnumber:";
+		cin>>b;
+		r=a/b;
+		cout<<"        "<<a<<"/"<<b<<"="<<r<<endl;
+		return a/b;
+	}
+	long double squroot()
+	{
+	//	float g,h,r=0;
+		cout<<"  Plase entre the mnumber:";
+		cin>>a;
+		r=sqrt(a);
+		return r;
+	}
+};
+
+
+
+
+
+class converter
+{
+public:
+	int choice;
+	converter()
+	{
+	//	menu();
+	}
+	void menu()
+	{
+		do
+		{
+			cout<<"\n\n\t\t_____CONVERTER_____\n"<<endl;
+			cout<<"\t [1]=Lenght."<<endl;
+			cout<<"\t [2]=Weight."<<endl;
+			cout<<"\t [3]=Currence."<<endl;
+			cout<<"\t [4]=Back."<<endl;
+			cin>>choice;
+			system("CLS");
+			switch(choice)
+			{
+			case 1:
+				lenght();
+				getch();
+				break;
+			case 2:
+				weight();
+				getch();
+				break;
+			case 3:
+				currence();
+				getch();
+				break;
+			case 4:
+				break;
+			default:
+				cout<<"You Enter Wrong Key!!!\a"<<endl;
+				getch();
+				break;
+			}
+			system("CLS");
+		}
+			while(choice!=4);
+	}
+	void lenght()
+	{
+		do
+		{
+			cout<<"\n\n\t\t___LENGHT___\n"<<endl;
+			cout<<"\t [1]=KiloMeter - Mile."<<endl;
+			cout<<"\t [2]=Mile - KiloMeter."<<endl;
+			cout<<"\t [3]=Meter - Inch."<<endl;
+			cout<<"\t [4]=Inch - Meter."<<endl;
+			cout<<"\t [5]=Meter - Foot."<<endl;
+			cout<<"\t [6]=Foot - Meter."<<endl;
+			cout<<"\t [7]=Inch - Foot."<<endl;
+			cout<<"\t [8]=Foot - Inch."<<endl;
+			cout<<"\t [9]=Meter - Yard."<<endl;
+			cout<<"\t [10]=Yard - Meter."<<endl;
+			cout<<"\t [11]=CentiMeter - inch."<<endl;
+			cout<<"\t [12]=inch - CentiMeter."<<endl;
+			cout<<"\t [13]=Back."<<endl;
+			cin>>choice;
+			system("CLS");
+			switch(choice)
+			{
+			case 1:
+				kilometer_mile();
+				getch();
+				break;
+			case 2:
+				mile_kilometer();
+				getch();
+				break;
+			case 3:
+				meter_inch();
+				getch();
+				break;
+			case 4:
+				inch_meter();
+				getch();
+				break;
+			case 5:
+				meter_foot();
+				getch();
+				break;
+			case 6:
+				foot_meter();
+				getch();
+				break;
+			case 7:
+				inch_foot();
+				getch();
+				break;
+			case 8:
+				foot_inch();
+				getch();
+				break;
+			case 9:
+				meter_yard();
+				getch();
+				break;
+			case 10:
+				yard_meter();
+				getch();
+				break;
+			case 11:
+				centimeter_inch();
+				getch();
+				break;
+			case 12:
+				inch_centimeter();
+				getch();
+				break;
+			case 13:
+				break;
+			default:
+				cout<<"You Enter Wrong Key!!!\a"<<endl;
+				getch();
+				break;
+			}
+			system("CLS");
+		}
+			while(choice!=13);
+	}
+	void weight()
+	{
+		do
+		{
+			cout<<"\n\n\t\t___WEIGHT___\n"<<endl;
+			cout<<"\t [1]=Kg - Pound."<<endl;
+			cout<<"\t [2]=Pound - Kg."<<endl;
+			cout<<"\t [3]=Maund - kg."<<endl;
+			cout<<"\t [4]=Kg - Maund."<<endl;
+			cout<<"\t [5]=Back."<<endl;
+			cin>>choice;
+			system("CLS");
+			switch(choice)
+			{
+				case 1:
+					kg_pound();
+					getch();
+					break;
+				case 2:
+					pound_kg();
+					getch();
+					break;
+				case 3:
+					maund_kg();
+					getch();
+					break;
+				case 4:
+					kg_maund();
+					getch();
+					break;
+				case 5:
+					break;
+				default:
+					cout<<"You Enter Wrong Key!!!\a"<<endl;
+					getch();
+					break;
+			}
+			system("CLS");
+		}
+			while(choice!=5);
+	}
+	void currence()
+	{
+		do
+		{
+			cout<<"\n\n\t\t___UNIT CURRENCE___\n"<<endl;
+			cout<<"\t [1]=Bangladesh - Foreign."<<endl;
+			cout<<"\t [2]=Foreign - Bangladesh."<<endl;
+			cout<<"\t [3]=Back."<<endl;
+			cin>>choice;
+			system("CLS");
+			switch(choice)
+			{
+			case 1:
+				bangladesh_foreign();
+				getch();
+				break;
+			case 2:
+				foreign_bangladesh();
+				getch();
+				break;
+			case 3:
+				break;
+			default:
+				cout<<"You Enter Wrong Key!!!\a"<<endl;
+				getch();
+				break;
+			}
+			system("CLS");
+		}
+			while(choice!=3);
+	}
+	void kilometer_mile()
+	{
+		double k=0,m=0;
+		cout<<"  KiloMeter=";
+		cin>>k;
+		m=k*0.62137;
+		cout<<"  Mile="<<m<<endl;
+	}
+	void mile_kilometer()
+	{
+		double k=0,m=0;
+		cout<<"  Mile=";
+		cin>>m;
+		k=m*1.6093470879;
+		cout<<"  Kilometer="<<k<<endl;
+	}
+	void meter_inch()
+	{
+		double k=0,m=0;
+		cout<<"  Meter=";
+		cin>>m;
+		k=m*39.37;
+		cout<<"  Inch="<<k<<endl;
+	}
+	void inch_meter()
+	{
+		double k=0,m=0;
+		cout<<"  Inch=";
+		cin>>m;
+		k=m*0.0254000508;
+		cout<<"  Meter="<<k<<endl;
+	}
+	void meter_foot()
+	{
+		double k=0,m=0;
+		cout<<"  Meter=";
+		cin>>m;
+		k=m*3.28084;
+		cout<<"  Foot="<<k<<endl;
+	}
+	void foot_meter()
+	{
+		double k=0,m=0;
+		cout<<"  Foot=";
+		cin>>m;
+		k=m*0.3047999902;
+		cout<<"  Meter="<<k<<endl;
+	}
+	void inch_foot()
+	{
+		double k=0,m=0;
+		cout<<"  Inch=";
+		cin>>m;
+		k=m*0.083333333333;
+		cout<<"  Foot="<<k<<endl;
+	}
+	void foot_inch()
+	{
+		double k=0,m=0;
+		cout<<"  Foot=";
+		cin>>m;
+		k=m*12;
+		cout<<"  Inch="<<k<<endl;
+	}
+	void meter_yard()
+	{
+		double k=0,m=0;
+		cout<<"  Meter=";
+		cin>>m;
+		k=m*1.09361;
+		cout<<"  Yard="<<k<<endl;
+	}
+	void yard_meter()
+	{
+		double k=0,m=0;
+		cout<<"  Yard=";
+		cin>>m;
+		k=m*0.9144027578;
+		cout<<"  Meter="<<k<<endl;
+	}
+	void centimeter_inch()
+	{
+		double k=0,m=0;
+		cout<<"  CentiMeter=";
+		cin>>m;
+		k=m*0.3937;
+		cout<<"  Inch="<<k<<endl;
+	}
+	void inch_centimeter()
+	{
+		double k=0,m=0;
+		cout<<"  Inch=";
+		cin>>m;
+		k=m*2.54000508;
+		cout<<"  CentiMeter="<<k<<endl;
+	}
+	void kg_pound()
+	{
+		double k=0,m=0;
+		cout<<"  Kg=";
+		cin>>m;
+		k=m*2.20462;
+		cout<<"  Pound="<<k<<endl;
+	}
+	void pound_kg()
+	{
+		double k=0,m=0;
+		cout<<"  Pound=";
+		cin>>m;
+		k=m*0.4535929094;
+		cout<<"  Kg="<<k<<endl;
+	}
+	void maund_kg()
+	{
+		double k=0,m=0;
+		cout<<"  Maund=";
+		cin>>m;
+		k=m*40;
+		cout<<"  Kg="<<k<<endl;
+	}
+	void kg_maund()
+	{
+		double k=0,m=0;
+		cout<<"  Kg=";
+		cin>>m;
+		k=m*0.025;
+		cout<<"  Maund="<<k<<endl;
+	}
+	void bangladesh_foreign()
+	{
+		double k=0,m=0,l=0;
+		cout<<"Currency Rate Banladesh To Foreign: ";
+		cin>>l;
+		cout<<"  Banladesh=";
+		cin>>m;
+		k=m*l;
+		cout<<"  Foreign="<<k<<endl;
+	}
+	void foreign_bangladesh()
+	{
+		double k=0,m=0,l=0;
+		cout<<"Currency Rate Foreign To Banladesh: ";
+		cin>>l;
+		cout<<"  Foreign=";
+		cin>>m;
+		k=m*l;
+		cout<<"  Bangladesh="<<k<<endl;
+	}
+};
+
+
+class zodiac
+{
+public:
+	zodiac(){};
+	void menu()
+	{
+	string mas;
+	cout<<"\n\n\t\t_____ZODIAC_____"<<endl;
+	cout<<"\n\tEnter Your Birth Day."<<endl;
+	int day=0,month=0,year=0;
+	cout<<"\tYear=";
+	cin>>year;
+	cout<<"\tMonth=";
+	cin>>month;
+	switch(month)
+	{
+	case 1:
+		mas="January";
+		break;
+	case 2:
+		mas="February";
+		break;
+	case 3:
+		mas="March";
+		break;
+	case 4:
+		mas="April";
+		break;
+	case 5:
+		mas="May";
+		break;
+	case 6:
+		mas="June";
+		break;
+	case 7:
+		mas="July";
+		break;
+	case 8:
+		mas="August";
+		break;
+	case 9:
+		mas="September";
+		break;
+	case 10:
+		mas="October";
+		break;
+	case 11:
+		mas="Nobember";
+		break;
+	case 12:
+		mas="December";
+		break;
+	}
+	cout<<"\tDay=";
+	cin>>day;
+	cout<<"Your Birth Day is "<<day<<" "<<mas<<" "<<year<<endl;
+
+	if(day>=21&&day<=31&&month==1||day>=1&&day<=18&&month==2)
+	{
+		cout<<"Your Zodiac Is Komb"<<endl;
+	}
+	else if(day>=19&&day<=29&&month==2||day>=1&&day<=20&&month==3)
+	{
+		cout<<"Your Zodiac Is Min"<<endl;
+	}
+	else if(day>=21&&day<=31&&month==3||day>=1&&day<=20&&month==4)
+	{
+		cout<<"Your Zodiac Is Mesh"<<endl;
+	}
+	else if(day>=21&&day<=31&&month==4||day>=1&&day<=21&&month==5)
+	{
+		cout<<"Your Zodiac Is Brish"<<endl;
+	}
+	else if(day>=22&&day<=31&&month==5||day>=1&&day<=21&&month==6)
+	{
+		cout<<"Your Zodiac Is Mithon"<<endl;
+	}
+	else if(day>=22&&day<=31&&month==6||day>=1&&day<=22&&month==7)
+	{
+		cout<<"Your Zodiac Is KorKot"<<endl;
+	}
+	else if(day>=23&&day<=31&&month==7||day>=1&&day<=23&&month==8)
+	{
+		cout<<"Your Zodiac Is Shingh"<<endl;
+	}
+	else if(day>=24&&day<=31&&month==8||day>=1&&day<=23&&month==9)
+	{
+		cout<<"Your Zodiac Is Konna"<<endl;
+	}
+	else if(day>=24&&day<=31&&month==9||day>=1&&day<=23&&month==10)
+	{
+		cout<<"Your Zodiac Is Tola"<<endl;
+	}
+	else if(day>=24&&day<=31&&month==10||day>=1&&day<=22&&month==11)
+	{
+		cout<<"Your Zodiac Is Brishcik"<<endl;
+	}
+	else if(day>=23&&day<=31&&month==11||day>=1&&day<=21&&month==12)
+	{
+		cout<<"Your Zodiac Is Dhanu"<<endl;
+	}
+	else if(day>=22&&day<=31&&month==12||day>=1&&day<=20&&month==1)
+	{
+		cout<<"Your Zodiac Is Mokor"<<endl;
+	}
+	else
+		cout<<"Your Enter A Wrong Birth Day.\a";
+	getch();
+	system("CLS");
+	}
+	};
+
+
+
+
+
+
+void main()
+{
+	calc Yeasin;
+	converter Arafat;
+	zodiac Sami;
+	int choice;
+	do
+	{
+	cout<<"\n\n\t\t  ***MENU***\n"<<endl;
+	cout<<"\t [1]=Calculator."<<endl;
+	cout<<"\t [2]=Converter."<<endl;
+	cout<<"\t [3]=Matrix."<<endl;
+	cout<<"\t [4]=Zodiac."<<endl;
+	cout<<"\t [5]=Exit."<<endl;
+
+	cout<<"  Pls! Enter Your Choice : ";
+	cin>>choice;
+	system("CLS");
+	switch(choice)
+	{
+	case 1:
+		
+		Yeasin.menu();
+		break;
+	case 2:
+		Arafat.menu();
+		break;
+	case 3:
+		cout<<"This Function is under construction"<<endl;
+		break;
+	case 4:
+		Sami.menu();
+		break;
+	case 5:
+		break;
+	default:
+		cout<<"You Enter A Wrong Choice!!!"<<endl;
+	}
+	}while(choice!=5);
+}
